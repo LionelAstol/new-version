@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>improved-date</title>
+		
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" integrity="sha256-jBpMJWNNWEGSSqsYSKzJ3Lw9VnIYMFPItx/yE5tl18M=" crossorigin="anonymous">
+		<!-- Highlight core CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" integrity="sha256-Zd1icfZ72UBmsId/mUcagrmN7IN5Qkrvh75ICHIQVTk=" crossorigin="anonymous">
+				
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-dark bg-dark">
+			  <a class="navbar-brand" href="https://github.com/E-SYSTEMES">
+			    <img src="img/esys.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+			    github E SYSTEMES
+			  </a>
+			</nav>		
+		</header>
+		<div class="container">
+			<h1 class="font-weight-light pt-5">ImprovedDate</h1>
+			<p class="lead">ImprovedDate is an enhanced version of the JavaScript Date object with methods for:</p>
+			<ul>
+				<li>Get the number of the day in the year and the number of remaining days</li>
+				<li>Get the first day of the week</li>
+				<li>Get the ISO 8601 number of the week</li>
+				<li>Get the the number of days of a month</li>
+				<li>Verify if the day is a non working day ( French calendar )</li>
+			</ul>
+			<p><a href="https://github.com/E-SYSTEMES/improved-date/releases/download/v1.0.0/improvedDate-v1.0.0.zip" class="btn btn-primary">Download production version</a> <a href="https://github.com/E-SYSTEMES/improved-date/archive/master.zip" class="btn btn-outline-secondary">Download development version</a><br>
+			<span class="text-secondary">current version : 1.0.0</span></p>
+			<p>This project is hosted on <a href="https://github.com/E-SYSTEMES/improved-date">Github</a>. Please use the project's <a href="https://github.com/E-SYSTEMES/improved-date/issues">issue tracker</a> to report bugs.</p>
+			<hr class="my-4">
+			<h2>Getting Started</h2>
+			<pre><code>&lt;!-- include improvedDate --&gt;
+&lt;script src=&quot;js/improvedDate.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Creates an ImprovedDate instance --&gt;
+&lt;script&gt;
+  new ImprovedDate();
+  new ImprovedDate( value );
+  new ImprovedDate( dateString );
+  new ImprovedDate( year, month [, day [, hours [, minutes [, seconds [, milliseconds]]]]] );
+&lt;/script&gt;</code></pre>
+			<hr class="my-4">
+			<h2>Live example</h2>
+			<p>Open your browser's debugging console to see the example</p>
+			<hr class="my-4">
+			<h2>Property</h2>
+			<h3 class="h4">ImprovedDate.date</h3>
+			<p>A standard buid-in Date instance. All Date.prototype methods can be used.</p>
+			<pre><code>var di = new ImprovedDate();
+console.log( di.date ); // Mon Mar 26 2018 12:12:20 GMT+0200 (CEST);
+
+var di = new ImprovedDate( 2018, 8, 28 );
+console.log( di.date ); // Fri Sep 28 2018 00:00:00 GMT+0200 (CEST)
+
+var di = new ImprovedDate( 2018, 8, 28 );
+console.log( di.date.getFullYear() ); // 2018</code></pre>
+			<hr class="my-4">
+			<h2>Methods</h2>
+			<h3 class="h4">ImprovedDate.getYearDay()</h3>
+			<p>return an Array with the number of the day in the year ( 1 - 366 ) and the number of remaining days ( 366 - 1 )</p>			
+			<pre><code>var di = new ImprovedDate();
+console.log( di.getYearDay() ); // [85,280]</code></pre>
+			<h3 class="h4">ImprovedDate.firstDayOfWeek()</h3>
+			<p>return a standard buid-in Date instance of the ISO 8601 first day of the week( monday )</p>			
+			<pre><code>var di = new ImprovedDate();
+console.log( di.firstDayOfWeek() ); // Mon Mar 26 2018 12:12:20 GMT+0200 (CEST)</code></pre>
+			<h3 class="h4">ImprovedDate.getWeek()</h3>
+			<p>return the ISO 8601 number (1 - 53) of the week</p>			
+			<pre><code>var di = new ImprovedDate();
+console.log( di.getWeek() ); // 13</code></pre>
+			<h3 class="h4">ImprovedDate.getMonthLength()</h3>
+			<p>return the number of days in the month</p>			
+			<pre><code>var di = new ImprovedDate();
+console.log( di.getMonthLength() ); // 31</code></pre>
+			<h3 class="h4">ImprovedDate.getNonWorkingDay()</h3>
+			<p>return true if the date is a french nonworking day.<br>Pass false as parameter to exclude week-ends</p>
+			<pre><code>var di = new ImprovedDate();
+console.log( di.getNonWorkingDay() ); // false
+
+var di = new ImprovedDate();
+console.log( di.getNonWorkingDay( false ) ); // false</code></pre>
+		</div>
+		<footer class="bg-light text-muted py-4">
+			<div class="container">
+				<p>Created by Lionel Astol for <a href="https://www.e-systemes.com">E SYSTEMES</a>.</p>
+			</div>
+		</footer>
+		<!-- Highlight core JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		
+		<!-- Add improvedDate object -->
+		<script src="../dist/improvedDate.min.js"></script>
+		<script>
+
+			// example for ImprovedDate.date
+			var di = new ImprovedDate();
+			console.log( di.date );
+			var di = new ImprovedDate( 2018, 8, 28 );
+			console.log( di.date );
+			console.log( di.date.getFullYear() );
+
+			// example for ImprovedDate.getYearDay()
+			var di = new ImprovedDate();
+			console.log( di.getYearDay() );
+			
+			// example for ImprovedDate.firstDayOfWeek()
+			var di = new ImprovedDate();
+			console.log( di.firstDayOfWeek() );
+			
+			// example for ImprovedDate.getWeek()
+			var di = new ImprovedDate();
+			console.log( di.getWeek() );
+			
+			// example for ImprovedDate.getMonthLength()
+			var di = new ImprovedDate();
+			console.log( di.getMonthLength() );
+
+			// example for ImprovedDate.getNonWorkingDay()
+			var di = new ImprovedDate();
+			console.log( di.getNonWorkingDay() );
+			var di = new ImprovedDate();
+			console.log( di.getNonWorkingDay( false ) );
+		</script>
+	</body>
+</html>
