@@ -1,4 +1,4 @@
-# ImprovedDate
+# ImprovedDate 2
 
 ImprovedDate is an enhanced version of the JavaScript Date object with methods for:
 
